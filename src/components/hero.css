@@ -1,0 +1,103 @@
+ 
+.hero-con {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height, adjust as needed */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; 
+    object-fit: cover; 
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    height: 100%; 
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-weight: 900;
+    font-size: 5vw;
+    opacity: 0.7;
+}
+
+
+.sub-text{
+    font-size: 1.3vw;
+    margin-bottom: 2.05vw;
+}
+
+button {
+    background-color: transparent; 
+    border: 3px solid rgba(255, 255, 255, 0.5); 
+    color: white; 
+    font-weight: bold;
+    font-size: 0.9vw; 
+    padding: 1vw 1.8vw; 
+    border-radius: 2vw; 
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background color on hover */
+    border-color: white; 
+}
+
+
+@media (max-width: 700px) {
+    
+
+    .content {
+        display: flex;
+        justify-content: start;
+        margin-top: 40vw;
+        align-items: center;
+        color: white;
+        text-align: center;
+        flex-direction: column;
+        height: 100%; 
+    }
+
+
+
+
+    h1{
+        font-size: 15vw;
+        opacity: 0.7;
+    }
+    
+    
+    .sub-text{
+        font-size: 4vw;
+        margin-bottom: 6.5vw;
+    }
+    
+    button {
+        font-size: 3vw; 
+        padding: 3vw 4.5vw; 
+        border-radius: 6vw;
+       
+    }
+    
+
+    
+    
+    }
