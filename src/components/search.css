@@ -1,0 +1,109 @@
+.search-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 2rem auto;
+  }
+  
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.5rem;
+  }
+  
+  .input-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .input-group select,
+  .input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .view-results {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .view-results:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(240, 240, 240, 1);
+    border-radius: 12px;
+  }
+  
+  .result-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .result-group p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .flag-img {
+    width: 80px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+
+
+
+
+
+.dropdown {
+    position: absolute; /* Position relative to the .input-group container */
+    top: 100%; /* Start right below the input box */
+    left: 0;
+    width: 100%; /* Match the input width */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white; /* Ensure it's visible */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    max-height: 150px; /* Limit height for scrolling */
+    overflow-y: auto;
+    z-index: 10; /* Ensure it appears above other elements */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+.dropdown li {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown li:hover {
+    background-color: #f0f0f0; /* Highlight item on hover */
+}
