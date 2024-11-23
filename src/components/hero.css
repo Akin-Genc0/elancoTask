@@ -1,105 +1,271 @@
- 
 .hero-con {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full viewport height, adjust as needed */
-    overflow: hidden; /* Prevent overflow */
-}
-
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1; 
-    object-fit: cover; 
-}
-
-.content {
+    margin: 0vw 3.8vw;
+    height: 88.5vh;
+    background-image: url('../assets/bg.jpg');
+    background-size: cover; 
+    background-position: center;
+    border-radius: 2vw;
     display: flex;
     justify-content: center;
+
+    
+}
+
+
+.content{
+     margin-top: 8.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: Start;
     align-items: center;
     color: white;
-    text-align: center;
-    flex-direction: column;
-    height: 100%; 
 }
 
-h1{
+.content h1{
+    margin-top: 0vw;
+    color: #fff;
     font-family: 'Times New Roman', Times, serif;
-    color: white;
-    font-weight: 900;
-    font-size: 5vw;
-    opacity: 0.7;
+    font-size: 4vw;
+    font-weight: 600;
 }
 
-
-.sub-text{
-    font-size: 1.3vw;
-    margin-bottom: 2.05vw;
+.content p{
+    font-size: 1.5vw;
+    
 }
 
-button {
+.content button {
     background-color: transparent; 
     border: 3px solid rgba(255, 255, 255, 0.5); 
     color: white; 
-    font-weight: bold;
-    font-size: 0.9vw; 
-    padding: 1vw 1.8vw; 
-    border-radius: 2vw; 
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease; 
+    font-weight: bold; 
+    font-size: 1vw; 
+    padding: 0.8vw 2vw; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    margin-bottom: 1.5vw;
 }
 
-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight background color on hover */
+.content button:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
     border-color: white; 
 }
 
 
 
-
-@media (max-width: 700px) {
-    
-
-    .content {
-        display: flex;
-        justify-content: start;
-        margin-top: 40vw;
-        align-items: center;
-        color: white;
-        text-align: center;
-        flex-direction: column;
-        height: 100%; 
-    }
-
-
-
-
-    h1{
-        font-size: 15vw;
-        opacity: 0.7;
+.search-con {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.5vw;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      width: 100%;
+      margin: 2rem auto;
     }
     
-    
-    .sub-text{
-        font-size: 4vw;
-        margin-bottom: 6.5vw;
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      opacity: 0.6;
+      flex: 1;
+      gap: 1.5rem;
     }
     
-    button {
-        font-size: 3vw; 
-        padding: 3vw 4.5vw; 
-        border-radius: 6vw;
+    .input-group label {
+      font-size: 1.05vw;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .input-group select,
+    .input-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1.05vw;
+    }
+    
+  
+    
+    .result-box1 {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      width: 50%;
+      height: 84%;
+      margin-left: 2rem;
+    }
+    
+  
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+    }
+    
+    .result-group {
+      flex: 1;
+      margin-left: 1rem;
+      width: 5%;
+  
+    }
+
+    
+    label {
+      display: block;
+      font-size: 1vw;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+    
+
+    
+    .flag-img {
+      width: 5vw;
+      height: 3vw;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      object-fit: cover;
+    }
+    
+    .result-group p {
+        font-size: 1vw;
+        margin: 0;
+        color: #333;
+      }
+    
+
+
+      @media screen and (max-width: 1024px) {
+        
+        .content {
+            margin-top: 20vw; 
+        }
+    
+        .content h1 {
+            font-size: 8vw; 
+        }
+    
+        .content p {
+            font-size: 3.5vw; 
+        }
+    
+        .content button {
+            margin-top: 2vw;
+            font-size: 2.5vw; 
+            padding: 1.5vw 2.5vw;
+        }
+    
        
-    }
+        .search-con {
+            width: 90%; 
+            padding: 2vw; 
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center elements */
+        }
     
+        .input-box {
+            width: 90%;
+            gap: 1.5rem; 
+            margin-bottom: 5vw;
+        }
+    
+        .input-group label {
+            font-size: 3vw; 
+        }
+    
+        .input-group select,
+        .input-group input {
+            font-size: 3vw; 
+            padding: 1.5vw; 
+        }
+    
+       
+        .result-box1 {
+            width: 80%; 
+            margin-left: 0;
+            padding: 1rem;
+        }
+    
+        label {
+            font-size: 3vw;
+            margin-bottom: 0.3rem;
+          }
+          
+        .result-row {
+            flex-direction: column;
+            display: flex;
+     
+            gap: 5vw;
+        }
+    
+        .flag-img {
+            width: 45px; 
+            height: 30px;
+        }
+    
+        .view-results {
+            font-size: 3.5vw;
+            padding: 3vw 4vw; 
+        }
+    }
 
-    
-    
+
+  
+@media screen and (max-width: 750px) {
+    .content {
+     
+        margin-top: 25vw;
     }
+
+    .content h1 {
+        font-size: 11vw; 
+    }
+
+    .content p {
+        font-size: 4.5vw;  
+    }
+
+    .content button {
+        margin-top: 3vw;
+        font-size: 3vw;  
+        padding: 2vw 2vw;
+        
+    }
+
+
+   
+    .result-box1 {
+     
+        padding: 1rem;
+      }
+    
+      .result-row {
+        flex-direction: column;
+        gap: 6vw;
+         width: 10%;
+      }
+    
+      .flag-img {
+        width: 60px;
+        height: 40px;
+      }
+      .search-con {
+        width: 80%;
+      }
+  
+     
+}
+
+
+
+

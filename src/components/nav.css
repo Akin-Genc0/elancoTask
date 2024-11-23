@@ -8,12 +8,9 @@ body {
 }
 
 .nav-con {
-    position: fixed; /* Fixed at the top */
     width: 100%;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.093));
-    z-index: 1;
+   
+   
 }
 
 nav {
