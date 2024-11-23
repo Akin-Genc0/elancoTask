@@ -1,6 +1,6 @@
 .hero-con {
     margin: 0vw 3.8vw;
-    height: 88.5vh;
+    height: 100%;
     background-image: url('../assets/bg.jpg');
     background-size: cover; 
     background-position: center;
@@ -147,6 +147,13 @@
 
       @media screen and (max-width: 1024px) {
         
+        .hero-con {
+      
+           
+           
+        
+            
+        }
         .content {
             margin-top: 20vw; 
         }
@@ -167,7 +174,7 @@
     
        
         .search-con {
-            width: 90%; 
+            width: 100%; 
             padding: 2vw; 
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center elements */
@@ -260,7 +267,7 @@
         height: 40px;
       }
       .search-con {
-        width: 80%;
+        width: 90%;
       }
   
      
