@@ -14,11 +14,10 @@ function Abt() {
         <p>
         My first step in development was bringing the Figma design to life, 
         making sure the UI was not only visually appealing but also fully responsive for 
-        a seamless experience across devices. After that, I integrated the REST API to retrieve 
-        and display the data. For this, I used Axios, a React library, to simplify 
-        API interactions and ensure the app functioned smoothly.
-        I made some small changes to improve the user experience, like replacing 
-        a dropdown menu with a more intuitive search feature.
+        a seamless experience across devices. Next, I integrated the REST API to fetch and display the data. 
+        To handle the API calls and keep everything running smoothly, I used Axios, which is a popular library for React. 
+        For the data visualization, I turned to Recharts to create a bar chart, making the population data more 
+        visual and easier to digest.
         </p>
         
         <button className="learn-more-btn">Thank-You :)</button>

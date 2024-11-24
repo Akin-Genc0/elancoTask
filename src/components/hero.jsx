@@ -1,7 +1,10 @@
+
+
 import { useState, useEffect } from 'react';
-import './hero.css'; // Importing the CSS file
-import bg from '../assets/bg.jpg'; // Importing the background image
+import './hero.css';
+import bg from '../assets/bg.jpg';
 import axios from 'axios';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'; // Importing Recharts for charting
 
 function Hero() {
     const [countries, setCountries] = useState([]);
@@ -10,9 +13,8 @@ function Hero() {
     const [selectedCity, setSelectedCity] = useState('');
     const [population, setPopulation] = useState(null);
     const [flagUrl, setFlagUrl] = useState('');
-    const [countryPopulation, setCountryPopulation] = useState(null); // Add state for country population
+    const [countryPopulation, setCountryPopulation] = useState(null);
 
-    // Fetch all countries and their cities
     useEffect(() => {
         axios
             .get('https://countriesnow.space/api/v0.1/countries/population/cities')
@@ -25,10 +27,9 @@ function Hero() {
             .catch((error) => console.error('Error fetching countries:', error));
     }, []);
 
-    // Fetch cities, flag, and overall country population when country changes
     useEffect(() => {
         if (selectedCountry) {
-            // Fetch cities for selected country
+            // Fetch cities, flag, and country population
             axios
                 .get('https://countriesnow.space/api/v0.1/countries/population/cities')
                 .then((response) => {
@@ -39,7 +40,6 @@ function Hero() {
                 })
                 .catch((error) => console.error('Error fetching cities:', error));
 
-            // Fetch flag for selected country
             axios
                 .post('https://countriesnow.space/api/v0.1/countries/flag/images', {
                     country: selectedCountry,
@@ -51,7 +51,6 @@ function Hero() {
                 })
                 .catch((error) => console.error('Error fetching flag:', error));
 
-            // Fetch the overall population for selected country
             axios
                 .get(`https://countriesnow.space/api/v0.1/countries/population?country=${selectedCountry}`)
                 .then((response) => {
@@ -66,7 +65,7 @@ function Hero() {
         } else {
             setCities([]);
             setFlagUrl('');
-            setCountryPopulation(null); // Reset country population if no country is selected
+            setCountryPopulation(null);
         }
     }, [selectedCountry]);
 
@@ -86,8 +85,14 @@ function Hero() {
             .catch((error) => console.error('Error fetching population:', error));
     };
 
+    // Prepare data for the chart
+    const chartData = [
+        { name: 'City Population', value: population || 0 },
+        { name: 'Country Population', value: countryPopulation || 0 },
+    ];
+
     return (
-        <div className='hero-con' style={{ backgroundImage: `url(${bg})` }}>
+        <div className="hero-con" style={{ backgroundImage: `url(${bg})` }}>
             <div className="content">
                 <h1>CountryCheck</h1>
                 <p>Explore with just a tap</p>
@@ -127,6 +132,7 @@ function Hero() {
                         </div>
                     </div>
 
+                    {/* Result Box with Chart */}
                     <div className="result-box1">
                         <div className="result-row">
                             <div className="result-group">
@@ -146,24 +152,31 @@ function Hero() {
                                 )}
                             </div>
                         </div>
+
                         <div className="result-row">
                             <div className="result-group">
                                 <label>Country Population</label>
-                                <p>
-                                    {countryPopulation
-                                        ? Number(countryPopulation).toLocaleString('en-US')
-                                        : 'N/A'}
-                                </p>
+                                <p>{countryPopulation ? Number(countryPopulation).toLocaleString('en-US') : 'N/A'}</p>
                             </div>
                             <div className="result-group">
                                 <label>City Population</label>
-                                <p>
-                                    {population
-                                        ? Number(population).toLocaleString('en-US')
-                                        : 'N/A'}
-                                </p>
+                                <p>{population ? Number(population).toLocaleString('en-US') : 'N/A'}</p>
                             </div>
                         </div>
+
+                        {/* Chart Section */}
+                        {countryPopulation && population && (
+                            <ResponsiveContainer width="100%" height={300}>
+                                <BarChart data={chartData}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis tick={{ fontSize: 12 }} />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Bar dataKey="value" fill="#8884d8" />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        )}
                     </div>
                 </div>
             </div>
