@@ -10,6 +10,7 @@ function Hero() {
     const [selectedCity, setSelectedCity] = useState('');
     const [population, setPopulation] = useState(null);
     const [flagUrl, setFlagUrl] = useState('');
+    const [countryPopulation, setCountryPopulation] = useState(null); // Add state for country population
 
     // Fetch all countries and their cities
     useEffect(() => {
@@ -24,9 +25,10 @@ function Hero() {
             .catch((error) => console.error('Error fetching countries:', error));
     }, []);
 
-    // Fetch cities and flag when country changes
+    // Fetch cities, flag, and overall country population when country changes
     useEffect(() => {
         if (selectedCountry) {
+            // Fetch cities for selected country
             axios
                 .get('https://countriesnow.space/api/v0.1/countries/population/cities')
                 .then((response) => {
@@ -37,6 +39,7 @@ function Hero() {
                 })
                 .catch((error) => console.error('Error fetching cities:', error));
 
+            // Fetch flag for selected country
             axios
                 .post('https://countriesnow.space/api/v0.1/countries/flag/images', {
                     country: selectedCountry,
@@ -47,9 +50,23 @@ function Hero() {
                     }
                 })
                 .catch((error) => console.error('Error fetching flag:', error));
+
+            // Fetch the overall population for selected country
+            axios
+                .get(`https://countriesnow.space/api/v0.1/countries/population?country=${selectedCountry}`)
+                .then((response) => {
+                    const countryData = response.data.data.find(
+                        (item) => item.country === selectedCountry
+                    );
+                    if (countryData && countryData.populationCounts) {
+                        setCountryPopulation(countryData.populationCounts[0].value);
+                    }
+                })
+                .catch((error) => console.error('Error fetching country population:', error));
         } else {
             setCities([]);
             setFlagUrl('');
+            setCountryPopulation(null); // Reset country population if no country is selected
         }
     }, [selectedCountry]);
 
@@ -131,8 +148,20 @@ function Hero() {
                         </div>
                         <div className="result-row">
                             <div className="result-group">
-                                <label>Population</label>
-                                <p>{population ? Number(population).toLocaleString('en-US') : 'N/A'}</p>
+                                <label>Country Population</label>
+                                <p>
+                                    {countryPopulation
+                                        ? Number(countryPopulation).toLocaleString('en-US')
+                                        : 'N/A'}
+                                </p>
+                            </div>
+                            <div className="result-group">
+                                <label>City Population</label>
+                                <p>
+                                    {population
+                                        ? Number(population).toLocaleString('en-US')
+                                        : 'N/A'}
+                                </p>
                             </div>
                         </div>
                     </div>
