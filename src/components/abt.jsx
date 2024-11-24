@@ -21,7 +21,7 @@ function Abt() {
         a dropdown menu with a more intuitive search feature.
         </p>
         
-        <button className="learn-more-btn">Figma Design</button>
+        <button className="learn-more-btn">Thank-You :)</button>
       </div>
       <div className="about-image">
         <img src={about}alt="About Us" />
