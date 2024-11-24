@@ -7,7 +7,7 @@ function Nav() {
     <div className='nav-con'>
       <nav>
         <div className='left'>
-          <img className='logo' src={logo} alt="Logo" />
+         <Link to="/" ><img className='logo' src={logo} alt="Logo" /></Link> 
         </div>
         <ul className='lists'>
           <li><Link to="/">Home</Link></li>

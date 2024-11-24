@@ -80,10 +80,20 @@ a:hover {
 
 @media (max-width: 700px) {
     
-    .lists{
-        display: none;
-    }
     
+  .nav-con nav .lists li:first-child,
+  .nav-con nav .lists li:last-child {
+    display: none;
+  }
+    
+
+  .nav-con nav .lists li:nth-child(2) {
+    display: block;
+  }
+
+  a {
+    font-size: 3vw;
+  }
     .nav-con{
         padding-bottom: 3vw;
         
