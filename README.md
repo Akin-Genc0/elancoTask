@@ -17,7 +17,7 @@ This web application was built to meet the scenario requirements provided by **E
 - To fetch and display the required data, the application uses **REST APIs**.
 - **Axios**, a popular React library, was used to handle API calls, ensuring smooth and efficient data fetching.
 
-### Data Visualization
+### Data Visualisation
 - For visualizing population data, the application leverages **Recharts**, a React-based charting library.
 - A bar chart was implemented to visually compare country and city population data, making it easier for users to digest the information.
 
